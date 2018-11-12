@@ -1,4 +1,10 @@
 <%= link_to 'Voltar', root_path %>
 <h1>Edit Book</h1>
 
-<%= render 'form' %>
+<%= simple_form_for @book, :html => { :multipart => true} do |f| %>
+  <%= f.select :category_id, @categories %>
+  <%= f.input :title, label: "Book Title" %>
+  <%= f.input :description %>
+  <%= f.input :author %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
